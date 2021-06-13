@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.lang.Math;
 public class BasicJava{
 
@@ -92,14 +93,13 @@ public class BasicJava{
     }
     public void Shifting(){
         int[]x={1, 5, 10, 7, -2};
-        ArrayList<Integer> k=new ArrayList<Integer>();
-        for (int i=0;i<x.length;i++){
-            x[i]=x[i+1];
-            if(x[i+1]==x.length-1){
-                x[i+1]=0;
+        // ArrayList<Integer> k=new ArrayList<Integer>();
+        for (int i=1;i<x.length;i++){
+            x[i-1]=x[i];
+            if(i==x.length-1){
+                x[i]=0;
             }
-            k.add(x[i]);
         }
-        System.out.println(k);
+        System.out.println(Arrays.toString (x));
     }
 }
