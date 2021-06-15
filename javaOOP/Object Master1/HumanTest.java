@@ -9,5 +9,7 @@ public class HumanTest{
         // x1.attack(x2);
         // System.out.println(x1.getHealth());
         // System.out.println(x2.getHealth());
+
+    Ninja n1 =new Ninja();
     }
 }
