@@ -1,0 +1,48 @@
+1. to get the jsp ready while creating jsp file we need to install the eclipse enterprise.
+--> from help click on eclipse Marketplace
+--> and then search for eclipse enterprise and install it.
+--> select every thing and accept the terms and after it finishes accept the request for restarting the STS.
+--> this step you do it only one time in your life and then it will be used for all your projects.
+2. in each spring boot project always add thses dependencies:
+ <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+        </dependency>
+3.controller only render html pages and jsp pages
+4. RestController for rendering strings and json only
+5. in the jsp file import these:
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+to use <c:out value="${2+2}"/>
+where always add "" before anythig you want to print and the $ aleays put it it is required.
+6. put this in the src/main/resources/applications.properties file:
+spring.mvc.view.prefix=/WEB-INF/
+after creating the WEB-INF file in src/main/webapp/WEB-INF.
+7. always when you want to render or redirect to something use @controller.
+8. flash error messages are disappered when refreshing the page because they apearing when we redirect to a page, and after refreshing it will disappar because we reloaded the original page.
+9. the model and controller and all annotations are implemented and written during the runtime in spring boot becuase they are a reserved words in jstl, so we don't need to write them manually like spring MVC we just ned to import them,
+but the tomcat and jstl we need to write them manually in the pom.xml file because we need them to be locally on the project.
+10. sessions are objects in OOP and they called HttpSession and to use them in the fron end we need to pass them to the fron end using model.
+11. sessions can be accessed between controllers in the project and share the data, just like python it is shared among all the classes.
+12. to render a jsp file just write in the controller method:
+return "index.jsp";
+13. to write a pure java code inside jsp file ue this notaion:
+<% %>
+14. use ctrl+shift+f to rearrange your code specially in jsp file.
+15. to access the session from the fron end (jsp file) you can do his without passing it to the model so use:
+<h1>
+<% 
+String name= session.getAtrribute("name")+""; //we added +"" to cast the object that the session returned to string.
+out.print(name); // it is just like cout it will print the content.
+%> 
+</h1>
+16. to do redirect use :
+return "redirect:/";
+it will redirect you to the path "/".
+17. redirectAtribute.addFlashAttribute("error", "....");
+it will add it behind the secne by default to the model and w can use it direclty in the jsp file using :
+c:out value="${error}"
+and it will print it only if we goes to the error path.
