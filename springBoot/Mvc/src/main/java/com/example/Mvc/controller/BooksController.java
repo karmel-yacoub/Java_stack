@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.Mvc.models.Book;
 import com.example.Mvc.services.BookService;
 
-
-
-@Controller
 public class BooksController {
 	// ... imports removed for brevity
 	
