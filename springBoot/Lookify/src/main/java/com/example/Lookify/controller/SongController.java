@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.Lookify.models.Song;
 import com.example.Lookify.services.SongServices;
@@ -66,16 +67,18 @@ public String topten(Model model) {
 	model.addAttribute("top",top);
 	return"topten.jsp";
 }
-@RequestMapping("/search")
-public String search(@ModelAttribute("name") Song song) {
-	return"redirect:/search/"+song.getArtist();
-}
-@RequestMapping("/saerch/{search}")
-public String result(@ModelAttribute("name") Song song,@PathVariable("search") String search,Model model) {
+
+@RequestMapping(value="/search", method=RequestMethod.POST)
+public String result(@RequestParam(value="search") String search,Model model) {
 	List<Song> result=songserve.search(search);
 	model.addAttribute("search",search);
 	model.addAttribute("result",result);
-	return"search.jsp";
+	return "search.jsp";
 			
 }
+
+//@RequestMapping("/search")
+//public String search() {
+//	return"redirect:/search/"+Song.getArtist();
+//}
 }

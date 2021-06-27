@@ -35,7 +35,7 @@ public void deletesong(Long id) {
 public List<Song>topten(){
 	return songrepo.findTop10ByOrderByRatingDesc();
 }
-public List<Song>search(String search){
+public List<Song> search(String search){
 	return songrepo.findByArtistContaining(search);
 }
 }

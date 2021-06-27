@@ -12,9 +12,8 @@
 	<a href="/songs/new">Add New</a>
 	<a href="/search/topten">Top Songs</a>
 
-	<form action="/search/${search}" method="post" modelAttribute="name">
-			
-			<input type="text" placeholder="Search Artist">
+		<form action="/search"  method="POST">
+			<input type="text" name="search" placeholder="Search Artist">
 			<button type="submit">Search</button>
 	</form>
 	<table>

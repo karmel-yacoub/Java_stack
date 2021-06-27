@@ -9,10 +9,9 @@
 </head>
 <body>
 <p><a href="/dashboard"></a></p>
-<h2>Song by artist:<c:out value="${song.artist}"/></h2>
-<form action="/search" method="post" modelAttribute="name">
-			
-			<input type="text" placeholder="Search Artist">
+<h2>Song by artist:<c:out value="${search}"/></h2>
+	<form action="/search"  method="POST">
+			<input type="text" name="search" placeholder="Search Artist">
 			<button type="submit">Search</button>
 	</form>
 <table>
